@@ -1,7 +1,7 @@
 <template>
-  <v-app>
+  <v-app :style="{background: $vuetify.theme.themes[theme].background}">
     <Navbar />
-    <router-view></router-view>
+    <router-view :key="$route.path"></router-view>
   </v-app>
 </template>
 
@@ -16,6 +16,11 @@ export default {
 
   data: () => ({
     //
-  })
+  }),
+  computed: {
+    theme() {
+      return this.$vuetify.theme.dark ? "dark" : "light";
+    }
+  }
 };
 </script>

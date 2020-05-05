@@ -1,0 +1,65 @@
+<template>
+  <div class="display-content d-flex justify-center align-center">
+    <v-container>
+      <v-row class="d-flex justify-center align-center">
+        <v-col cols="12" sm="8" md="6">
+          <router-link :to="this.pathDonjon">
+            <v-card>
+              <v-card-text>
+                <v-img src="../assets/images/donjonImg.jpg" />
+              </v-card-text>
+              <v-card-title class="d-flex align-center justify-center">Donjons de {{this.path}}</v-card-title>
+            </v-card>
+          </router-link>
+        </v-col>
+        <v-col cols="12" sm="8" md="6">
+          <router-link :to="this.pathRaid">
+            <v-card>
+              <v-card-text>
+                <v-img src="../assets/images/raidWow.jpg" />
+              </v-card-text>
+              <v-card-title class="d-flex align-center justify-center">Raids de {{this.path}}</v-card-title>
+            </v-card>
+          </router-link>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
+</template>
+
+<script>
+export default {
+  components: {},
+  data: () => ({
+    path: "",
+    pathDonjon: "",
+    pathRaid: ""
+  }),
+
+  mounted() {
+    if (this.$route.path == "/bc") {
+      this.path = "Burning Crusade";
+      this.pathDonjon = this.$route.path + "/donjon";
+      this.pathRaid = this.$route.path + "/raid";
+      console.log(this.pathDonjon, this.pathRaid);
+    } else if (this.$route.path == "/classic") {
+      this.path = "Classic";
+      this.pathDonjon = this.$route.path + "/donjon";
+      this.pathRaid = this.$route.path + "/raid";
+    } else if (this.$route.path == "/wotlk") {
+      this.path = "Wrath of the Lich king";
+      this.pathDonjon = this.$route.path + "/donjon";
+      this.pathRaid = this.$route.path + "/raid";
+    }
+  }
+};
+</script>
+
+<style scoped>
+a {
+  text-decoration: none !important;
+}
+.display-content {
+  height: 100%;
+}
+</style>

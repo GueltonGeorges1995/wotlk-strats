@@ -2,14 +2,11 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Dashboard from './components/Dashboard.vue';
 
-import DonjonWotlk from './components/wotlk/DonjonWotlk.vue';
-import RaidWotlk from './components/wotlk/RaidWotlk.vue';
 
-import DonjonBc from './components/bc/DonjonBc.vue';
-import RaidBc from './components/bc/RaidBc.vue';
 
-import DonjonClassic from './components/classic/DonjonClassic.vue';
-import RaidClassic from './components/classic/RaidClassic.vue';
+import DisplayContent from './components/DisplayContent.vue';
+import Donjon from './components/Donjon.vue';
+import Raid from './components/Raid.vue';
 
 Vue.use(Router);
 
@@ -26,43 +23,43 @@ export default new Router({
         //WOTLK PATH
         {
             path: '/wotlk',
-            component: DonjonWotlk
+            component: DisplayContent
         },
         {
             path: '/wotlk/donjon',
-            component: DonjonWotlk
+            component: Donjon
         },
         {
             path: '/wotlk/raid',
-            component: RaidWotlk
+            component: Raid
         },
         //BC PATH
         {
             path: '/bc',
-            component: DonjonBc
+            component: DisplayContent
         },
         {
             path: '/bc/donjon',
-            component: DonjonBc
+            component: Donjon
         },
         {
             path: '/bc/raid',
-            component: RaidBc
+            component: Raid
         },
 
         //CLASSIC PATH
         {
             path: '/classic',
-            component: DonjonClassic
+            component: DisplayContent
 
         },
         {
             path: '/classic/donjon',
-            component: DonjonClassic
+            component: Donjon
         },
         {
             path: '/classic/raid',
-            component: RaidClassic
+            component: Raid
         }
     ]
 });
