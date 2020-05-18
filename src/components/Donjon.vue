@@ -3,19 +3,29 @@
     <h1>liste de tout les donjons de {{this.path}}</h1>
 
     <ul v-for="(donjon,i) in affichageDonjon" :key="i">
-      <li v-text="donjon"></li>
+      <li v-text="donjon.titre"></li>
     </ul>
   </div>
 </template>
 
 <script>
+import DonjonClassic01 from "../assets/images/donjonClassic/donjonClassic01.jpg";
 export default {
   data: () => ({
     path: "",
     affichageDonjon: "",
     donjonWotlk: ["donjon1", "donjon2", "donjon3"],
     donjonBc: ["donjon4", "donjon5", "donjon6"],
-    donjonClassic: ["donjon7", "donjon8", "donjon9"]
+    donjonClassic: [
+      {
+        titre: "Titre du donjon",
+        image: DonjonClassic01
+      },
+      {
+        titre: "Titre du donjon",
+        image: DonjonClassic01
+      }
+    ]
   }),
   mounted() {
     if (this.$route.path == "/bc/donjon") {
