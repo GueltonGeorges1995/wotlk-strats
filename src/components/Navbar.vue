@@ -20,7 +20,7 @@
         </template>
         <v-list>
           <v-list-item v-for="(linkNavbar,i) in linksNavbar" :key="i" router :to="linkNavbar.route">
-            <v-list-item-title v-text="linkNavbar.text"></v-list-item-title>
+            <v-list-item-title v-text="linkNavbar.text" @click="checkPath()"></v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -92,6 +92,26 @@ export default {
     } else if (this.$route.path == "/wotlk") {
       this.linksNavbar[0].route = "/wotlk/donjon";
       this.linksNavbar[1].route = "/wotlk/raid";
+    }
+  },
+  methods: {
+    checkPath() {
+      if (this.$route.path == "/bc/donjon" || this.$route.path == "/bc/raid") {
+        this.linksNavbar[0].route = "/bc/donjon";
+        this.linksNavbar[1].route = "/bc/raid";
+      } else if (
+        this.$route.path == "/wotlk/donjon" ||
+        this.$route.path == "/wotlk/raid"
+      ) {
+        this.linksNavbar[0].route = "/wotlk/donjon";
+        this.linksNavbar[1].route = "/wotlk/raid";
+      } else if (
+        this.$route.path == "/classic/donjon" ||
+        this.$route.path == "/classic/raid"
+      ) {
+        this.linksNavbar[0].route = "/classic/donjon";
+        this.linksNavbar[1].route = "/classic/raid";
+      }
     }
   }
 };
